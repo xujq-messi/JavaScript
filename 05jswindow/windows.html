@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script>
+            function refresh() {
+                var x = window.innerWidth ;
+                var y = window.innerHeight ;
+
+                document.getElementById("x").innerHTML="长度:" + x ;
+                document.getElementById("y").innerHTML="宽度:" + y ;
+
+                var x1 = screen.availWidth ;
+                var y1 = screen.availHeight ;
+
+                document.getElementById("x1").innerHTML="screen长度:" + x1;
+                document.getElementById("y1").innerHTML="screen宽度:" + y1 ;
+
+                var host = location.host ;
+                var hostname = location.hostname ;
+                var pathname = location.pathname ;
+                var port = location.port ;
+                var protocol = location.protocol ;
+
+                document.getElementById("host").innerHTML="host:" + host;
+                document.getElementById("hostname").innerHTML="hostname:" + hostname;
+                document.getElementById("pathname").innerHTML="pathname:" + pathname;
+                document.getElementById("port").innerHTML="port:" + port;
+                document.getElementById("protocol").innerHTML="protocol:" + protocol;
+
+                var txt = "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
+                txt += "<p>Browser Name: " + navigator.appName + "</p>";
+                txt += "<p>Browser Version: " + navigator.appVersion + "</p>";
+                txt += "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
+                txt += "<p>Platform: " + navigator.platform + "</p>";
+                txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
+                txt += "<p>User-agent language: " + navigator.systemLanguage + "</p>";
+
+                document.getElementById("example").innerHTML=txt;
+
+                t = setTimeout('refresh()', 1000) ;
+
+            }
+        
+            function loadNewDoc() {
+                window.location.assign("http://www.w3school.com.cn") ;
+            }
+        </script>
+    </head>
+
+    <body onload="refresh()">
+    <!-- <body> -->
+        <h1>浏览器body大小</h1>
+        <p id="x">长度:</p>
+        <p id="y">宽度:</p>
+
+        <!-- 这个screen，是物理屏幕的像素大小。不跟随浏览器变化而变化。 -->
+        <h1>浏览器screen大小</h1>
+        <p id="x1">长度:</p>
+        <p id="y1">宽度:</p>
+
+        <h1>location</h1>
+        <p id="host"></p>
+        <p id="hostname"></p>
+        <p id="pathname"></p>
+        <p id="port"></p>
+        <p id="protocol"></p>
+
+        <input type="button" value="load new document" onclick="loadNewDoc()" >
+        <button type="button" value="load new document" onclick="loadNewDoc()" >load new document</button>
+
+        <p id="example"></p>
+    </body>
+</html>
